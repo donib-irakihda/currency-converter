@@ -10,7 +10,7 @@ app.get("/convert", async (req, res) => {
     const response = await axios.get(apiUrl);
     const exchangeRates = response.data.rates;
     const result = amount * exchangeRates[currencyTo];
-    console.log("rate: ", exchangeRates[currencyTo])
+    console.log(`Today's rate: one ${currencyFrom} is equal to ${exchangeRates[currencyTo]} ${currencyTo}`,)
     res.json({ result });
   } catch (error) {
     res.status(500).json({ error: "An error occurred" });
